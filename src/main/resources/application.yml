@@ -1,0 +1,32 @@
+localhost: "http://127.0.0.1:9080"
+
+thumbnail:
+  width: 400
+  height: 400
+
+server:
+  port: 9080
+
+spring:
+  http:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 15MB
+
+path:
+  image:
+    origin:
+      regex: "(\\.)(gif|bmp|png|jpg|jpeg)"
+      location: "/upload/image/origin/"
+      mapping: "/get/image/origin/"
+    compressed:
+      regex: "(\\.)(bmp|png|jpg|jpeg)"
+      location: "/upload/image/compressed/"
+      mapping: "/get/image/compressed/"
+      size:
+        width: 1280
+        height: 1280
+logging:
+  level:
+    org.springframework: info
+    cn.micheal: debug
